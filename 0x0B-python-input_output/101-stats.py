@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# 101-stats.py
 """Reads from standard input and computes metrics.
 After every ten lines or the input of a keyboard interruption (CTRL + C),
 prints the following statistics:
@@ -48,7 +47,7 @@ if __name__ == "__main__":
                     else:
                         status_codes[line[-2]] += 1
             except IndexError:
-                pass
+             i   pass
 
         print_stats(size, status_codes)
 
