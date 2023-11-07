@@ -1,22 +1,22 @@
 #!/usr/bin/python3
+""" Class that defines a rectangle from BaseGeometry Class """
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-bg = BaseGeometry()
 
-bg.integer_validator("my_int", 12)
-bg.integer_validator("width", 89)
+class Rectangle(BaseGeometry):
+    """ Class that defines a rectangle from BaseGeometry Class """
 
-try:
-    bg.integer_validator("name", "John")
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    def __init__(self, width, height):
+        """ Initializes instance """
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.__width = width
+        self.__height = height
 
-try:
-    bg.integer_validator("age", 0)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    def area(self):
+        """ Method that returns the area of the instance"""
+        return self.__width * self.__height
 
-try:
-    bg.integer_validator("distance", -4)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    def __str__(self):
+        """ Special method that returns the printable string """
+        return "[Rectangle] {:d}/{:d}".format(self.__width, self.__height)
