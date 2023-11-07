@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+"""
+Module 0-read_file
+Contains function that reads and prints contents from file
+"""
 
-"""Defines an object attribute lookup function."""
 
-
-def lookup(obj):
-    """Return a list of an object's available attributes."""
-    return (dir(obj))
+def read_file(filename=""):
+    """Read and print text from file"""
+    with open(filename, mode="r", encoding="utf-8") as f:
+        print(f.read(), end="")
