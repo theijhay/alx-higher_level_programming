@@ -1,10 +1,12 @@
 #!/usr/bin/node
 
 const request = require('request');
-const episode = process.argv[2];
-const url = 'http://swapi.co/api/films/' + episode;
+const { argv } = require('process');
 
-request(url, function (err, data, body) {
-  if (err) throw err;
+const BaseUrl = 'https://swapi-api.alx-tools.com/api';
+request(BaseUrl + '/films/' + argv[2], (error, response, body) => {
+  if (error) {
+    console.error(error);
+  }
   console.log(JSON.parse(body).title);
 });
